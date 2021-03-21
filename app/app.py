@@ -1,5 +1,14 @@
 from flask import Flask, request, jsonify, render_template, redirect, url_for, session
 # from flask_cors import CORS
+from controllers.audio_inference import *
+
+emotion_dict = {
+    0: 'angry',
+    1: 'calm',
+    2: 'fearful',
+    3: 'happy',
+    4: 'sad',
+}
 
 app = Flask(__name__)
 app.secret_key = "super secret key"
@@ -40,7 +49,8 @@ def uploadAudio():
     if request.method == "POST":
         f = request.files['audio_data']
         with open('audio.wav', 'wb') as audio:
-            suggested_sentiment, user_sentiment = runModel(audio, session['script'])
+            suggested_sentiment, user_sentiment = runModel(session['script'],
+                                                           audio)
             session['suggested_sentiment'] = suggested_sentiment
             session['user_sentiment'] = user_sentiment
             return redirect(url_for('showResult'))
@@ -57,9 +67,10 @@ def showResult():
 # @app.route("/runModel", methods=["POST"])
 def runModel(audio, script):
     # TODO Get audio file
-    print(audio)
-    print(script)
-    return 1, 1
+    suggested_sentiment_index = 0
+    user_sentiment_index = infer_from_audio(audio)
+    user_sentiment = {emotion_dict[i]}
+    return emotion_dict[suggested_sentiment_index], str(user_sentiment)
 
 
 if __name__ == "__main__":
