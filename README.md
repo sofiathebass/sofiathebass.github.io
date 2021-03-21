@@ -21,7 +21,7 @@ It is hard to coordinate a team of mostly newbie hackers scattered around 4 time
 4 of the 5 of us are new to hackathons, but we made it work!
 
 ## What we learned
-Tasks always take \pi times more time than expected. We planned to learn and use React on the fly, but realised it is too complex and built a minimum-viable product (MVP) in Bootstrap instead.
+Tasks always take pi times more time than expected. We planned to learn and use React on the fly, but realised it is too complex and built a minimum-viable product (MVP) in Bootstrap instead.
 
 ## What's next for Reci.tech: Script Recital Aid
 AIs surely lack artistic nuances, so we may feed it lines spoken by the best actors and show whether the user conveys similar emotional complexity like the best do.
