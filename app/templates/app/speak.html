@@ -5,9 +5,7 @@
   <div class="container text-center py-5 mb-4">
     <div class="mt-3 mb-4">
       <h1 class="h1 mb-0 d-inline-block align-middle">Now speak</h1>
-      <button type="button" class="btn btn-primary">Start</button>
-      <button type="button" class="btn btn-secondary">Stop</button>
-      <h1>{{ script }}</h1>
+      <h1>{{ data["script"] }}</h1>
     </div>
   </div>
 </div>
@@ -15,8 +13,14 @@
 
 {% block content %}
 <div class="container text-center py-5 mb-4">
-  <p class="lead">Suggested sentiment: [anger]</p>
-  <p class="lead">Your sentiment: [anger]</p>
-  <p class="lead">Expressiveness: [x]% (optional)</p>
+  <div id="controls">
+    <button id="recordButton" type="button" class="btn btn-primary">Record</button>
+    <button id="pauseButton" type="button" class="btn btn-primary" disabled>Pause</button>
+    <button id="stopButton" type="button" class="btn btn-primary" disabled>Stop</button>
+  </div>
+
+  <div id="formats">Format: start recording to see sample rate</div>
+  <p><strong>Recordings:</strong></p>
+  <ol id="recordingsList"></ol>
 </div>
 {% endblock %}

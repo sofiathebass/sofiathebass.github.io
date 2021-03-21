@@ -1,0 +1,18 @@
+{% extends "layouts/layout.html" %}
+
+{% block header %}
+<div class="bg-gray-light border-bottom border-gray-light">
+  <div class="container text-center py-5 mb-4">
+    <div class="mt-3 mb-4">
+      <h1 class="h1 mb-0 d-inline-block align-middle">Result</h1>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container text-center py-5 mb-4">
+  <p class="lead">Suggested sentiment: {{ data["suggested_sentiment"] }}</p>
+  <p class="lead">Your sentiment: {{ data["user_sentiment"] }}</p>
+</div>
+{% endblock %}
