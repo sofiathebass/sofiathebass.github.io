@@ -56,7 +56,7 @@ def showResult():
 
 # @app.route("/runModel", methods=["POST"])
 def runModel(audio, script):
-    # Get audio file
+    # TODO Get audio file
     print(audio)
     print(script)
     return 1, 1
