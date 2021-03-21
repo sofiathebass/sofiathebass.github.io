@@ -1,4 +1,4 @@
-from flask import Flask, request, jsonify, render_template
+from flask import Flask, request, jsonify, render_template, redirect, url_for
 # from flask_cors import CORS
 
 app = Flask(__name__)
@@ -16,17 +16,19 @@ def speak():
     """
     The page for the user to input their voice.
     """
-    return render_template("app/speak.html")
+    script = request.args.get('script')
+    return render_template("app/speak.html", script=script)
 
-@app.route("/upload", methods=["POST"])
-def upload():
+@app.route("/uploadLine", methods=["POST"])
+def uploadLine():
     """
     The upload page for our beautiful stunning website with a upload button
     for the chosen play.
     """
     if request.method == "POST":
-        play_script = str(request.json["play"])
-        return jsonify("Received")
+        script = request.form['script']
+        print(script)
+        return redirect(url_for('speak', script=script))
 
 if __name__ == "__main__":
     app.run()

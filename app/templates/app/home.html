@@ -12,12 +12,16 @@
 
 {% block content %}
 <div class="container text-center py-5 mb-4">
-  <div class="input-group input-group-lg">
-    <input type="text" class="form-control" placeholder="Put your line here..." aria-label="Recipient's username" aria-describedby="basic-addon2">
-    <div class="input-group-append">
-      <button class="btn btn-outline-secondary" type="button">Submit</button>
+  <form action="{{ url_for('uploadLine') }}" method="post">
+    <div class="row align-items-end">
+      <div class="form-group col-md-10">
+        <input type="text" name="script" class="form-control" placeholder="Put your line here..." aria-label="Recipient's username" aria-describedby="basic-addon2">
+      </div>
+      <div class="form-group col-md-2">
+        <button class="btn btn-primary align-middle" type="button submit">Submit</button>
+      </div>
     </div>
-  </div>
+  </form>
 
   <p class="lead">We will analyse its sentiment and see if your expression conforms to what our AI thinks that should be.</p>
 </div>
