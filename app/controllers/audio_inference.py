@@ -17,11 +17,13 @@ def infer_from_audio(audio):
     # audio_duration should be a real number in seconds
 
     # loading pre-trained model
-    json_file = open('model.json', 'r')
+    model_directory = "../model/"
+    json_file = open(model_directory + 'model.json', 'r')
     loaded_model_json = json_file.read()
     json_file.close()
     loaded_model = model_from_json(loaded_model_json)
-    loaded_model.load_weights("Emotion_Voice_Detection_Model.h5")
+    loaded_model.load_weights(model_directory +
+    "Emotion_Voice_Detection_Model.h5")
 
     # loading audio input
     X, sample_rate = librosa.load(audio, res_type='kaiser_fast',

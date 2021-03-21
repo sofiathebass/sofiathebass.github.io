@@ -52,7 +52,11 @@ def uploadAudio():
             suggested_sentiment, user_sentiment = runModel(session['script'],
                                                            audio)
             session['suggested_sentiment'] = suggested_sentiment
-            session['user_sentiment'] = user_sentiment
+            session['user_sentiment'] = str(user_sentiment)
+            if suggested_sentiment in user_sentiment.keys():
+                session['accuracy'] = str(user_sentiment[suggested_sentiment])
+            else:
+                session['accuracy'] = 'sadly, 0'
             return redirect(url_for('showResult'))
 
 
@@ -61,6 +65,7 @@ def showResult():
     data = {}
     data['suggested_sentiment'] = session['suggested_sentiment']
     data['user_sentiment'] = session['user_sentiment']
+    data['accuracy'] = session['accuracy']
     return render_template("app/result.html", data=data)
 
 
@@ -68,9 +73,11 @@ def showResult():
 def runModel(audio, script):
     # TODO Get audio file
     suggested_sentiment_index = 0
-    user_sentiment_index = infer_from_audio(audio)
-    user_sentiment = {emotion_dict[i]}
-    return emotion_dict[suggested_sentiment_index], str(user_sentiment)
+    # user_sentiment_index = infer_from_audio(audio)
+    user_sentiment_index = [(0, 40.5), (4, 14.9), (3, 14.9)]
+    sleep(500)
+    user_sentiment = {emotion_dict[i[0]]: i[1] for i in user_sentiment_index}
+    return emotion_dict[suggested_sentiment_index], user_sentiment
 
 
 if __name__ == "__main__":
