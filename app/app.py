@@ -1,15 +1,15 @@
-from flask import Flask, request, jsonify
-from flask_cors import CORS
+from flask import Flask, request, jsonify, render_template
+# from flask_cors import CORS
 
 app = Flask(__name__)
-CORS(app)
+# CORS(app)
 
 @app.route("/")
 def index():
     """
     The homepage for our beautiful stunning website.
     """
-    return "hacc"
+    return render_template("home/home.html")
 
 @app.route("/upload", methods=["POST"])
 def upload():
