@@ -151,14 +151,16 @@ function createDownloadLink(blob) {
     upload.innerHTML = "Upload";
     upload.addEventListener("click", function(event){
           var xhr=new XMLHttpRequest();
-          xhr.onload=function(e) {
-              if(this.readyState === 4) {
-                  console.log("Server returned: ",e.target.responseText);
-              }
-          };
           var fd=new FormData();
-          fd.append("audio_data",blob, filename);
-          xhr.open("POST","/",true);
+          fd.append("audio_data", blob, filename);
+          xhr.open("POST", "/uploadAudio", true);
+
+          xhr.onreadystatechange = function() {
+            if(xhr.readyState == XMLHttpRequest.DONE && xhr.status == 200) {
+              window.location.href = '/showResult';
+            }
+          }
+
           xhr.send(fd);
     })
     li.appendChild(document.createTextNode (" "))//add a space in between
