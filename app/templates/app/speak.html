@@ -1,0 +1,21 @@
+{% extends "layouts/layout.html" %}
+
+{% block header %}
+<div class="bg-gray-light border-bottom border-gray-light">
+  <div class="container text-center py-5 mb-4">
+    <div class="mt-3 mb-4">
+      <h1 class="h1 mb-0 d-inline-block align-middle">Now speak</h1>
+      <button type="button" class="btn btn-primary">Start</button>
+      <button type="button" class="btn btn-secondary">Stop</button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="container text-center py-5 mb-4">
+  <p class="lead">Suggested sentiment: [anger]</p>
+  <p class="lead">Your sentiment: [anger]</p>
+  <p class="lead">Expressiveness: [x]% (optional)</p>
+</div>
+{% endblock %}

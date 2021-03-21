@@ -9,7 +9,14 @@ def index():
     """
     The homepage for our beautiful stunning website.
     """
-    return render_template("home/home.html")
+    return render_template("app/home.html")
+
+@app.route("/speak")
+def speak():
+    """
+    The page for the user to input their voice.
+    """
+    return render_template("app/speak.html")
 
 @app.route("/upload", methods=["POST"])
 def upload():
