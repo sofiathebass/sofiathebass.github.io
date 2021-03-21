@@ -73,8 +73,8 @@ def showResult():
 def runModel(audio, script):
     # TODO Get audio file
     suggested_sentiment_index = 0
-    # user_sentiment_index = infer_from_audio(audio)
-    user_sentiment_index = [(0, 40.5), (4, 14.9), (3, 14.9)]
+    user_sentiment_index = infer_from_audio(audio)
+    # user_sentiment_index = [(0, 40.5), (4, 14.9), (3, 14.9)]
     user_sentiment = {emotion_dict[i[0]]: i[1] for i in user_sentiment_index}
     return emotion_dict[suggested_sentiment_index], user_sentiment
 
