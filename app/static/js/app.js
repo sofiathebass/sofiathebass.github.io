@@ -92,7 +92,6 @@ function pauseRecording(){
         //resume
         rec.record()
         pauseButton.innerHTML="Pause";
-
     }
 }
 
@@ -122,7 +121,7 @@ function createDownloadLink(blob) {
     var url = URL.createObjectURL(blob);
     var au = document.createElement('audio');
     var li = document.createElement('li');
-    var link = document.createElement('a');
+    var link = document.createElement('button');
 
     //name of .wav file to use during upload and download (without extendion)
     var filename = new Date().toISOString();
@@ -130,8 +129,10 @@ function createDownloadLink(blob) {
     //add controls to the <audio> element
     au.controls = true;
     au.src = url;
+    au.classList = ['align-middle']
 
     //save to disk link
+    link.classList = ['btn btn-primary align-middle']
     link.href = url;
     link.download = filename+".wav"; //download forces the browser to donwload the file using the  filename
     link.innerHTML = "Save to disk";
@@ -139,14 +140,15 @@ function createDownloadLink(blob) {
     //add the new audio element to li
     li.appendChild(au);
 
-    //add the filename to the li
-    li.appendChild(document.createTextNode(filename+".wav "))
+    // //add the filename to the li
+    // li.appendChild(document.createTextNode(filename+".wav "))
 
     //add the save to disk link to li
     li.appendChild(link);
 
     //upload link
-    var upload = document.createElement('a');
+    var upload = document.createElement('button');
+    upload.classList = ['btn btn-primary align-middle']
     upload.href="#";
     upload.innerHTML = "Upload";
     upload.addEventListener("click", function(event){
