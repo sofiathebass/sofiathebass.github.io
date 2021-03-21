@@ -20,6 +20,7 @@ def speak():
     """
     data = {}
     data['script'] = request.args.get('script')
+    session['script'] = data['script']
     return render_template("app/speak.html", data=data)
 
 
@@ -39,7 +40,7 @@ def uploadAudio():
     if request.method == "POST":
         f = request.files['audio_data']
         with open('audio.wav', 'wb') as audio:
-            suggested_sentiment, user_sentiment = runModel(audio)
+            suggested_sentiment, user_sentiment = runModel(audio, session['script'])
             session['suggested_sentiment'] = suggested_sentiment
             session['user_sentiment'] = user_sentiment
             return redirect(url_for('showResult'))
@@ -54,8 +55,10 @@ def showResult():
 
 
 # @app.route("/runModel", methods=["POST"])
-def runModel(audio):
+def runModel(audio, script):
     # Get audio file
+    print(audio)
+    print(script)
     return 1, 1
 
 
