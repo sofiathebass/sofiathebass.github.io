@@ -1,7 +1,7 @@
 # reci.tech
 Helping actors recite scripts expressively w the help of AI
 
-![Picture of the UI](preview.png){ width=50% }
+![Picture of the UI](preview.png)
 
 ## Devpost: <https://devpost.com/software/reci-tech-script-recital-aid>
 
