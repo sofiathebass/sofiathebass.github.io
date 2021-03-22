@@ -1,6 +1,12 @@
 # reci.tech
 Helping actors recite scripts expressively w the help of AI
 
+![Picture of the UI](cover.png)
+
+## Devpost: <https://devpost.com/software/reci-tech-script-recital-aid>
+
+## Demo video: <https://youtu.be/vwbAvUHnfUo>
+
 ## Inspiration
 The sentiments in our speech often get misinterpreted, especially during the pandemic when everyone covers their faces. We figured if that sentiment analysis AIs trained on daily sentences resemble how people understand emotions, we may adjust how we voice our sentences to what the AI thinks it is to convey our expressions to the most general audience.
 
